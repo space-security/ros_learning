@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot name="ares_with_gps" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find ares_description)/urdf/ares_description.xacro" />
+    <xacro:include filename="$(find ares_description)/urdf/sensors/gps_gazebo.xacro" />
+
+    <xacro:property name="gps_offset_x" value="0.05" />
+    <xacro:property name="gps_offset_y" value="0" />
+    <xacro:property name="gps_offset_z" value="0.06" />
+
+    <!-- gps -->
+    <joint name="gps_joint" type="fixed">
+        <origin xyz="${gps_offset_x} ${gps_offset_y} ${gps_offset_z}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="gps_link"/>
+    </joint>
+
+    <xacro:usb_gps prefix="gps"/>
+
+    <ares_with_gps/>
+
+</robot>

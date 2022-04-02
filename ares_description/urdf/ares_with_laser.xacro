@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<robot name="ares_with_laser" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find ares_description)/urdf/ares_description.xacro" />
+  <xacro:include filename="$(find ares_description)/urdf/sensors/lidar_gazebo.xacro" />
+  
+  <ares_description/>
+
+</robot>

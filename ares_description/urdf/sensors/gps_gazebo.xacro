@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="camera">
+    <xacro:macro name="usb_gps" params="prefix:=gps">
+        <!-- Create laser reference frame -->
+        <link name="${prefix}_link">
+            <inertial>
+                <mass value="0.1" />
+                <origin xyz="0 0 0" />
+                <inertia ixx="0.01" ixy="0.0" ixz="0.0"
+                         iyy="0.01" iyz="0.0"
+                         izz="0.01" />
+            </inertial>
+
+            <visual>
+                <origin xyz=" 0 0 0 " rpy="0 0 0" />
+                <geometry>
+                    <cylinder length="0.02" radius="0.03" />
+                </geometry>
+            </visual>
+
+            <collision>
+                <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+                <geometry>
+                    <box size="0.06 0.06 0.02" />
+                </geometry>
+            </collision>
+        </link>
+        <gazebo reference="${prefix}_link">
+            <material>Gazebo/White</material>
+        </gazebo>
+        <gazebo>  
+            <plugin name="gps" filename="libhector_gazebo_ros_gps.so">  
+                <updateRate>10.0</updateRate>  
+                <topicName>sensor_msgs/NavSatFix</topicName>  
+                <gaussianNoise>0.0 0.0 0.0</gaussianNoise>  
+                <offset>0 0 0</offset>  
+                <velocityGaussianNoise>0 0 0</velocityGaussianNoise>  
+                <frameId>base_link</frameId>  
+            </plugin>  
+        </gazebo>
+    </xacro:macro>
+</robot>

@@ -4,8 +4,7 @@
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
   name="ares_description">
-  <link
-    name="base_link">
+  <link name="base_link">
     <inertial>
       <origin
         xyz="-0.0077575 -0.00011309 0.021218"
@@ -44,8 +43,7 @@
       </geometry>
     </collision>
   </link>
-  <link
-    name="wheel_lf_link">
+  <link name="wheel_lf_link">
     <inertial>
       <origin
         xyz="-3.4398E-08 -0.0084293 1.0408E-17"
@@ -84,8 +82,7 @@
       </geometry>
     </collision>
   </link>
-  <joint
-    name="wheel_lf_joint"
+  <joint name="wheel_lf_joint"
     type="continuous">
     <origin
       xyz="0.061557 0.0744 0.01625"
@@ -97,8 +94,7 @@
     <axis
       xyz="0 1 0" />
   </joint>
-  <link
-    name="wheel_lb_link">
+  <link name="wheel_lb_link">
     <inertial>
       <origin
         xyz="3.4434E-05 -0.0084764 -1.9999E-05"
@@ -137,8 +133,7 @@
       </geometry>
     </collision>
   </link>
-  <joint
-    name="wheel_lb_joint"
+  <joint name="wheel_lb_joint"
     type="continuous">
     <origin
       xyz="-0.061486 0.0744 0.01625"
@@ -150,8 +145,7 @@
     <axis
       xyz="0 1 0" />
   </joint>
-  <link
-    name="wheel_rf_link">
+  <link name="wheel_rf_link">
     <inertial>
       <origin
         xyz="-0.0090763 0.017871 -0.0022561"
@@ -190,8 +184,7 @@
       </geometry>
     </collision>
   </link>
-  <joint
-    name="wheel_rf_joint"
+  <joint name="wheel_rf_joint"
     type="continuous">
     <origin
       xyz="0.061557 -0.0744 0.01625"
@@ -203,8 +196,7 @@
     <axis
       xyz="0 1 0" />
   </joint>
-  <link
-    name="wheel_rb_link">
+  <link name="wheel_rb_link">
     <inertial>
       <origin
         xyz="-3.4398E-08 0.0085707 6.9389E-18"
@@ -243,8 +235,7 @@
       </geometry>
     </collision>
   </link>
-  <joint
-    name="wheel_rb_joint"
+  <joint name="wheel_rb_joint"
     type="continuous">
     <origin
       xyz="-0.061486 -0.0744 0.01625"
@@ -256,8 +247,7 @@
     <axis
       xyz="0 1 0" />
   </joint>
-  <link
-    name="controller_link">
+  <link name="controller_link">
     <inertial>
       <origin
         xyz="-0.03 0.0425 0.0099913"
@@ -296,8 +286,7 @@
       </geometry>
     </collision>
   </link>
-  <joint
-    name="controller_joint"
+  <joint name="controller_joint"
     type="fixed">
     <origin
       xyz="-0.019964 -0.0425 0.05"
@@ -309,8 +298,7 @@
     <axis
       xyz="0 0 0" />
   </joint>
-  <link
-    name="laser_link">
+  <link name="laser_link">
     <inertial>
       <origin
         xyz="0.0073485 -8.0231E-18 -0.0159"
@@ -349,8 +337,7 @@
       </geometry>
     </collision>
   </link>
-  <joint
-    name="laser_joint"
+  <joint name="laser_joint"
     type="fixed">
     <origin
       xyz="0.040036 0 0.089"
@@ -362,4 +349,26 @@
     <axis
       xyz="0 0 0" />
   </joint>
+
+  <gazebo reference="base_link"> 
+     <material>Gazebo/White </material>
+  </gazebo>
+  <gazebo reference="wheel_lf_link">
+    <material>Gazebo/Black </material>
+  </gazebo>
+  <gazebo reference="wheel_lb_link">
+    <material>Gazebo/Black </material>
+  </gazebo>
+  <gazebo reference="wheel_rf_link">
+    <material>Gazebo/Black </material>
+  </gazebo>
+  <gazebo reference="wheel_rb_link">
+    <material>Gazebo/Black </material>
+  </gazebo>
+  <gazebo reference="controller_link">
+    <material>Gazebo/Black </material>
+  </gazebo>
+  <gazebo reference="laser_link">
+    <material>Gazebo/Black </material>
+  </gazebo>
 </robot>
